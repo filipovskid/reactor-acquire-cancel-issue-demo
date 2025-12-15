@@ -13,6 +13,10 @@ public class Application {
   
   public static void main(String[] args) {
     SpringApplication.run(Application.class, args);
+    Hooks.onOperatorError((t, o) -> {
+      log.error("onOperatorError:", t);
+      return t;
+    });
   }
 
 }
